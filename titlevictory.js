@@ -74,10 +74,32 @@ class VictoryScene extends Phaser.Scene {
         this.load.image('sparkles', 'sparkles.png');
     }
     create() {
+        this.cameras.main.fadeIn();
         this.background = this.add.image(400, 300, 'victoryBackground');
         this.rolypoly = this.add.image(400, 300, 'rolypolyVictory').setScale(0.7);
-        this.sparkles1 = this.add.image(375, 225, 'sparkles').setScale(0.15);
+        this.sparkles1 = this.add.image(375, 225, 'sparkles').setScale(0.15).setAlpha(0);
+        this.tweens.add({
+            targets: this.sparkles1,
+            alpha: 1,
+            duration: 1500,
+            yoyo: true,
+            repeat: -1,
+        });
         this.sparkles2 = this.add.image(475, 325, 'sparkles').setScale(0.15);
+        this.tweens.add({
+            targets: this.sparkles2,
+            alpha: 0,
+            duration: 1500,
+            yoyo: true,
+            repeat: -1,
+        });
+
+        this.input.once('pointerdown', () => {
+            this.cameras.main.fadeOut();
+            this.time.delayedCall(1000, () => {
+                this.scene.start('title');
+            })
+        })
     }
     update() {}
 }   
