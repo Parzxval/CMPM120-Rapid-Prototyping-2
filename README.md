@@ -7,3 +7,5 @@ Simple Slug Intro/Victory screen
 > Rolypoly image: Handdrawn in sketchbook app
 > Play Button: Handdrawn in sketchbook app
 
+Deployed Github Link: https://parzxval.github.io/CMPM120-Rapid-Prototyping-2/
+
