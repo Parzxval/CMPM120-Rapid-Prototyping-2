@@ -6,6 +6,9 @@ Simple Slug Intro/Victory screen
     - Prompt: "Create a 2d clipart-style nature background for a simple 2d game; add a simple grass platform and clouds"
 > Rolypoly image: Handdrawn in sketchbook app
 > Play Button: Handdrawn in sketchbook app
+> Victory screen background: Handdrawn in Krita
+> Rolypoly victory sprite: Handdrawn in Krita
+> Sparkles: Handdrawn in Krita
 
 Deployed Github Link: https://parzxval.github.io/CMPM120-Rapid-Prototyping-2/
 
