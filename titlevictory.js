@@ -16,11 +16,13 @@ class Title extends Phaser.Scene {
         this.titleLetters = this.add.image(250, 150, 'titleLetters');
         this.titleLetters.alpha = 0;
         this.rolypoly = this.add.image(0, 450, 'rolypoly');
-        this.playButton = this.add.image(600, 300, 'playButton').setInteractive();
+        this.playButton = this.add.image(600, 300, 'playButton');
         this.playButton.setScale(0.15);
 
+        this.playButton.setInteractive({ useHandCursor: true });
+
         this.playButton.on('pointerdown', () => {
-            this.goToScene('gameplayScene');
+            this.scene.start('gameplayScene');
         });
         
         this.titleLetters.setScale(0.1);
@@ -52,7 +54,11 @@ class GameplayScene extends Phaser.Scene {
 
     preload() {}
     create() {
-        this.add.text(400, 300, 'Gameplay Scene', { fontSize: '32px', fill: '#fff' }).setOrigin(0.5);
+        this.add.text(400, 300, 'Gameplay Scene\nClick w to simulate victory', { fontSize: '32px', fill: '#fff' }).setOrigin(0.5);
+
+        this.input.keyboard.on('keydown-W', () => {
+            this.scene.start('victoryScene');
+        });
     }
     update() {}
 }
@@ -63,5 +69,14 @@ let config = {
     height: 600,
     scene: [ Title, GameplayScene ]
 }
+
+class VictoryScene extends Phaser.Scene {
+    constructor() {
+        super('victoryScene');
+    }
+    preload() {}
+    create() {}
+    update() {}
+}   
 
 let game = new Phaser.Game(config);
