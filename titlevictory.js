@@ -63,20 +63,31 @@ class GameplayScene extends Phaser.Scene {
     update() {}
 }
 
-let config = {
-    type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    scene: [ Title, GameplayScene ]
-}
-
 class VictoryScene extends Phaser.Scene {
     constructor() {
         super('victoryScene');
     }
-    preload() {}
-    create() {}
+    preload() {
+        this.load.path = 'assets/';
+        this.load.image('victoryBackground', 'victoryBackground.png');
+        this.load.image('rolypolyVictory', 'rolypolyVictory.png');
+        this.load.image('sparkles', 'sparkles.png');
+    }
+    create() {
+        this.background = this.add.image(400, 300, 'victoryBackground');
+        this.rolypoly = this.add.image(400, 300, 'rolypolyVictory').setScale(0.7);
+        this.sparkles1 = this.add.image(375, 225, 'sparkles').setScale(0.15);
+        this.sparkles2 = this.add.image(475, 325, 'sparkles').setScale(0.15);
+    }
     update() {}
 }   
+
+
+let config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    scene: [ Title, GameplayScene, VictoryScene ]
+}
 
 let game = new Phaser.Game(config);
